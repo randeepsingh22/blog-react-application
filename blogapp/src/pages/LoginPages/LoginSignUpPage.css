@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+
+.main-login-vw {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-inner-login-vw {
+  width: 50%;
+
+  border-radius: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: aliceblue;
+}
+.form-vw {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.show-title {
+  font-weight: bolder;
+  font-size: 1.3em;
+  font-family: "PT Serif", serif;
+}
+.form-label {
+  width: 100%;
+  font-size: 0.6em;
+  font-weight: 600;
+  font-family: "PT Serif", serif;
+}
+.form-control {
+  width: 100%;
+  font-size: 0.7em;
+  font-family: "PT Serif", serif;
+}
+.btn-sub {
+  height: 40px;
+  font-size: 0.7em;
+  width: 30%;
+  border-radius: 12px;
+  border-color: white;
+  color: white;
+  background-color: rgb(15, 71, 120);
+  margin-top: 10px;
+  font-family: "PT Serif", serif;
+}
+.other-option-vw{
+    display: flex;
+    font-size: .6em;
+}
+.or-text{
+    font-size: .5em;
+    margin: 10px;
+}
+.show-login-option{
+    color: rgb(15, 71, 120);
+    margin-left: 5px;
+    cursor: pointer;
+}

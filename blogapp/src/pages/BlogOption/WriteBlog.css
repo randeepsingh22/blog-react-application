@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+.text-area {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 5px;
+  min-height: 450px;
+}
+.body-text-area {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 500px;
+}
+.blog-image-view {
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.add-image {
+  min-height: 450px;
+  margin: 10px;
+  display: flex;
+  border-radius: 20px;
+  border-color: grey;
+  border-width: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "PT Serif", serif;
+}
+.add-image-text{
+  font-family: "PT Serif", serif;
+  font-weight: 500;
+  color: gray;
+}
+.cross-icon {
+  background-color: red;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.image-text {
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: fit-content;
+  background-color: rgb(15, 71, 120);
+}
+.poster-img-vw {
+  max-width: 40%;
+  max-height: 10%;
+  border-radius: 10px;
+}
+
+.main-container {
+  margin: 0 auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-heading {
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+.sub-title {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.submit-btn:hover {
+  background-color: #3e8e41;
+}
