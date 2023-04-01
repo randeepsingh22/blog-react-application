@@ -192,6 +192,7 @@ function CreateBlog(propsData) {
       ) : (
         <div className="alertvw">
           <div className="text-message-vw">{blogMessage}</div>
+          {/* <div className="next-my-blogs-btn" onClick={()=>navigate("/myBlogs")}>Next</div> */}
         </div>
       )}
     </div>

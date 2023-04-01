@@ -123,3 +123,15 @@ select {
 .submit-btn:hover {
   background-color: #3e8e41;
 }
+.next-my-blogs-btn{
+  color: white;
+  border-radius: 10px;
+  width: 5%;
+  padding: 6px;
+  text-align: center;
+  background-color: rgb(15, 71, 120);
+  cursor: pointer;
+}
+.next-my-blogs-btn:hover {
+  background-color: rgba(15, 71, 120, 0.815);
+}

@@ -18,6 +18,9 @@ const BlogDescriptionCard = (props) => {
   const onClickEdit =()=>{
     props.onEditButtonClick(_id)
   }
+  const onDeleteTap =()=>{
+    props.onDeleteTap(_id)
+  }
 
   var createdOn = created_on
     ? `${Date(created_on).split(" ")[1]} ${Date(created_on).split(" ")[2]}`
@@ -35,7 +38,7 @@ const BlogDescriptionCard = (props) => {
           {isFromMyBlogs ? (
             <div>
               <img src={editBlog} onClick={onClickEdit} alt="" className="action-btn1" />
-              <img src={deleteIcon} alt="" className="action-btn2" />
+              <img src={deleteIcon} alt="" onClick={onDeleteTap} className="action-btn2" />
             </div>
           ) : (
             ""

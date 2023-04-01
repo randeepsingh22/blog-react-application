@@ -173,3 +173,37 @@ export const getBlogs = async (request, response) => {
       .json(sendResponse(0, "Error while obtaining blogs."));
   }
 };
+/**
+ * Delete Blog
+ */
+export const deleteBlog = async (request, response) => {
+  try {
+    /***
+     * Check If user Exist
+     */
+    let userExist = await userSchema.findOne({ _id: request.params.id });
+
+    if (userExist == null)
+      return response.status(406).json(sendResponse(0, "User does not exist"));
+
+    /**
+     * Check for blog delete
+     */
+    let myblogs = await Blog.findByIdAndDelete({ _id: request.body._id });
+    if (myblogs === null)
+      return response.status(406).json(
+        sendResponse(0, "Blog Not found")
+      );
+    else
+      return response.status(200).json(
+        sendResponse(1, "Blog Deleted Successfull.", {
+          blogs: myblogs,
+        })
+      );
+  } catch (e) {
+    console.log(e);
+    return response
+      .status(406)
+      .json(sendResponse(0, "Error while Deleting Blog."));
+  }
+};

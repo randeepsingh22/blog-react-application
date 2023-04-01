@@ -15,24 +15,50 @@ export default function MyBlogs(props) {
   const [blogList, setblogList] = useState([]);
   const [isResCome, setisResCome] = useState(false);
   const [updateBlog, setupdateBlog] = useState(false);
-  useEffect(() => {
-    getMyBlogs();
-  }, []);
   let blogUpdate = {};
 
   const onEditTap = (id) => {
-    console.log("onEditTapCalled" ,id)
+    console.log("onEditTapCalled", id);
     if (blogList) {
       blogList.forEach((blog) => {
         if (blog._id === id) {
           blogUpdate = blog;
           blogUpdate["isFromCreate"] = true;
-          console.log("onEditTapCalled" ,blogUpdate)
+          console.log("onEditTapCalled", blogUpdate);
           setupdateBlog(true);
         }
       });
     }
   };
+  const onDeleteTap = (id) => {
+    console.log("onDeleteTap", id);
+    if (blogList) {
+      blogList.forEach((blog) => {
+        if (blog._id === id) {
+          axiosInstance
+            .put(`/deleteBlogs/${getUserId()}`, { _id: id })
+            .then((response) => {
+              blogList.filter((blogData) => blogData._id !== id);
+              console.log("onDeleteTap", blogList.length);
+              setblogList(blogList);
+              // if (response.data?.status.toString() === "1") {
+              //   console.log(response.data?.data.user._id);
+              //   setmessage(response.data.message);
+              //   setUserId(response.data?.data.user._id);
+              //   setUserName(response.data?.data.user.full_name);
+              //   navigate("/home");
+              // }
+            })
+            .catch((error) => {
+              // setmessage(error.response.data.message);
+            });
+        }
+      });
+    }
+  };
+  useEffect(() => {
+    getMyBlogs();
+  }, []);
 
   /**
    * Get My Blogs
@@ -61,6 +87,7 @@ export default function MyBlogs(props) {
         // }
       })
       .catch((error) => {
+        setisResCome(true);
         // setmessage(error.response.data.message);
       });
   };
@@ -68,7 +95,7 @@ export default function MyBlogs(props) {
     <>
       {" "}
       {updateBlog ? (
-        <UpdateBlog blog={blogUpdate}/>
+        <UpdateBlog blog={blogUpdate} />
       ) : (
         <>
           <div className="main-picture-view">
@@ -111,14 +138,24 @@ export default function MyBlogs(props) {
                     <BlogDescriptionCard
                       key={blog._id}
                       blog={blog}
-                      onEditButtonClick ={(e) => {onEditTap(e)}}
+                      onEditButtonClick={(e) => {
+                        onEditTap(e);
+                      }}
+                      onDeleteTap={(e) => {
+                        onDeleteTap(e);
+                      }}
                     />
                   );
                 })
               : isResCome && (
                   <div className="blog-not-created-vw">
                     <div className="no-blog-found">Oops! No Blogs Found</div>{" "}
-                    <div className="create-now">Create Now</div>
+                    <div
+                      className="create-now"
+                      onClick={() => navigate("/write")}
+                    >
+                      Create Now
+                    </div>
                   </div>
                 )}
           </div>

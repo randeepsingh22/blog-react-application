@@ -1,6 +1,6 @@
 import express from "express";
 import { signUp,signin } from "../controllers/AuthRoute.js";
-import { createBlog, getBlogById, getBlogByUserId, getBlogs, updateNewBlog } from "../controllers/BlogRoute.js";
+import { createBlog, deleteBlog, getBlogById, getBlogByUserId, getBlogs, updateNewBlog } from "../controllers/BlogRoute.js";
 
 const router = express.Router();
 
@@ -15,5 +15,6 @@ router.put("/update", updateNewBlog);
 router.get("/getBlogById/:id", getBlogById);
 router.get("/getMyBlogs/:id", getBlogByUserId);
 router.get("/getBlogs/:id", getBlogs);
+router.put("/deleteBlogs/:id", deleteBlog);
 
 export { router };
